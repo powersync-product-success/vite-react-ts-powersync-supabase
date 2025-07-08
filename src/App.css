@@ -1,0 +1,77 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.app-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  padding: 20px;
+  gap: 24px;
+  background-color: #111;
+  color: white;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.status-card {
+  border: 1px solid #444;
+  border-radius: 8px;
+  background-color: black;
+  padding: 16px;
+  text-align: center;
+}
+
+.mono-text {
+  font-family: monospace;
+  font-size: 14px;
+}
+
+.centered {
+  text-align: center;
+}
+
+.counter-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .counter-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.counter-card {
+  padding: 16px;
+  border: 1px solid #333;
+  border-radius: 12px;
+  background-color: #222;
+  text-align: center;
+}
+
+.counter-count {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.primary-button {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: black;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
