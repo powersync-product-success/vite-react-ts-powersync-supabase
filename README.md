@@ -42,19 +42,13 @@ Follow these steps to set up your backend with Supabase and PowerSync (Or you ca
 
 #### Setup using the Supabase CLI (optional)
 If you prefer using the Supabase CLI, you can set up your project as follows:
-1. Setup a local project directory
-	```shell
-	mkdir my-project
-	cd my-project
-	```
-2. Install Supabase cli `npm install supabase --save-dev` [1](https://supabase.com/docs/guides/local-development/cli/getting-started)
-3. Login to your Supabase Account `npx supabase login`
-4. Initialize your project `npx supabase init`
-5. Enable "anonymous sign-ins" for the project [here](https://supabase.com/dashboard/project/_/auth/providers)
-6. Copy your project ID from the Supabase dashboard [here](https://supabase.com/dashboard/project/_/settings/general)
-7. Link your local project `npx supabase link --project-ref <project-id>`
-8. Create your `npx supabase migration new create_powersync_tables` and copy the contents of [`database.pgsql`](database.pgsql) into the newly created migration file in the `supabase/migrations` directory.
-9. Push your tables to the cloud db
+1. Login to your Supabase Account `npx supabase login`
+2. Initialize your project `npx supabase init`
+3. Enable "anonymous sign-ins" for the project [here](https://supabase.com/dashboard/project/_/auth/providers)
+4. Copy your project ID from the Supabase dashboard [here](https://supabase.com/dashboard/project/_/settings/general)
+5. Link your local project `npx supabase link --project-ref <project-id>`
+6. Create your `npx supabase migration new create_powersync_tables` and copy the contents of [`database.pgsql`](database.pgsql) into the newly created migration file in the `supabase/migrations` directory.
+7. Push your tables to the cloud db
    ```shell
    npx supabase db push
    ```

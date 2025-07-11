@@ -1,3 +1,4 @@
 onlyBuiltDependencies:
   - '@journeyapps/wa-sqlite'
   - esbuild
+  - supabase
