@@ -7,15 +7,14 @@ A template Vite, TS, React, PowerSync and Supabase project to get you started qu
 You have 3 options to get started with this template.
 We recommend using the first option for a quick start.
 
-1. Generate a repository from this [template](https://github.com/powersync-product-success/vite-react-ts-powersync-supabase/generate)
+1. Generate a repository from this [template](https://github.com/powersync-community/vite-react-ts-powersync-supabase/generate)
 2. Use [degit](https://github.com/Rich-Harris/degit) to scaffold the project:
 
 ```bash
-npx degit powersync-product-success/vite-react-ts-powersync-supabase my-powersync-app
-cd my-powersync-app
+npx degit powersync-product-success/vite-react-ts-powersync-supabase
 ```
 
-> **Note**: `degit` is a tool that downloads the latest version of a repository without the git history, giving you a clean starting point. Replace `my-powersync-app` with your preferred project name.
+> **Note**: `degit` is a tool that downloads the latest version of a repository without the git history, giving you a clean starting point. Add a second argument to specify your project name (e.g., my-app).
 
 3. Clone the repository directly and install dependencies:
 
