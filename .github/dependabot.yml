@@ -1,0 +1,41 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "dean-journeyapps"
+      - "joshua-journey-apps"
+      - "michaelbarnes"
+    ignore:
+      # Ignore major version updates for critical deps
+      - dependency-name: "react"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "react-dom"
+        update-types: ["version-update:semver-major"]
+    # Allow security updates for all dependencies
+    allow:
+      - dependency-type: "all"
+    groups:
+      react-ecosystem:
+        patterns:
+          - "react*"
+          - "@types/react*"
+      build-tools:
+        patterns:
+          - "webpack*"
+          - "babel*"
+          - "eslint*"
+          - "vite*"
+      powersync:
+        patterns:
+          - "@powersync/*"
+          - "powersync*"
+      testing:
+        patterns:
+          - "jest*"
+          - "@testing-library/*"
+          - "vitest*"
