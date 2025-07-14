@@ -65,10 +65,4 @@ export const powerSync = new PowerSyncDatabase({
  * 🔧 Quick prototype → Keep default (IndexedDB)
  */
 
-
-/**
- * Signs the user in anonymously.
- */
-// connector.signInAnonymously();
-
 powerSync.connect(connector);

@@ -38,14 +38,14 @@ export type SupabaseConnectorListener = {
 
 export class SupabaseConnector
   extends BaseObserver<SupabaseConnectorListener>
-  implements PowerSyncBackendConnector
-{
+  implements PowerSyncBackendConnector {
   readonly client: SupabaseClient;
   readonly config: SupabaseConfig;
 
   ready: boolean;
-
   currentSession: Session | null;
+  private initializationPromise: Promise<void>;
+  private signingIn: boolean = false;
 
   constructor() {
     super();
@@ -61,15 +61,34 @@ export class SupabaseConnector
       {
         auth: {
           persistSession: true,
+          autoRefreshToken: true,
+          detectSessionInUrl: true,
         },
       }
     );
     this.currentSession = null;
     this.ready = false;
+
+    // Restore session from localStorage
+    this.initializationPromise = this.initializeSession();
+  }
+
+  private async initializeSession(): Promise<void> {
+    try {
+      const { data, error } = await this.client.auth.getSession();
+      if (error) {
+        console.error("Failed to restore session:", error);
+      } else if (data?.session) {
+        console.log("Restored session:", data.session);
+        this.updateSession(data.session);
+      }
+    } catch (error) {
+      console.error("Error during session initialization:", error);
+    }
   }
 
   /**
-   * We suggest you use the following methods if you want to support login via username and password.
+   * We suggest you use the following function if you want to support login via username and password.
    * Note: this app is currently authenticating using an anonymous login.
    */
   // async login(username: string, password: string) {
@@ -88,23 +107,50 @@ export class SupabaseConnector
   //   this.updateSession(session);
   // }
 
-  async signInAnonymously(){
-    if(!this.currentSession){
-      return;
+  async signInAnonymously() {
+    // Wait for initialization to complete first
+    await this.initializationPromise;
+    
+    // Check if we already have a valid session
+    if (this.currentSession) {
+      return this.currentSession;
     }
 
-    const {
-      data: { session },
-      error
-    } = await this.client.auth.signInAnonymously();
-
-    if (error) {
-      throw error;
+    // Prevent concurrent sign-in attempts
+    if (this.signingIn) {
+      console.log("Already signing in, waiting...");
+      // Wait for the current sign-in to complete
+      while (this.signingIn) {
+        await new Promise(resolve => setTimeout(resolve, 100));
+      }
+      return this.currentSession;
     }
 
-    console.log("Signed in anonymously:", session);
+    try {
+      this.signingIn = true;
+      
+      // Double-check session after acquiring lock
+      if (this.currentSession) {
+        console.log("Session acquired while waiting");
+        return this.currentSession;
+      }
 
-    this.updateSession(session);
+      const {
+        data: { session },
+        error
+      } = await this.client.auth.signInAnonymously();
+
+      if (error) {
+        throw error;
+      }
+
+      console.log("Signed in anonymously:", session);
+      this.updateSession(session);
+
+      return session;
+    } finally {
+      this.signingIn = false;
+    }
   }
 
   async logout() {
@@ -131,7 +177,6 @@ export class SupabaseConnector
     }
 
     console.debug('session expires at', session.expires_at);
-
 
     if (session == null) {
       throw new Error(`Failed to get Supabase session`);
