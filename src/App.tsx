@@ -33,12 +33,12 @@ function App() {
 
       // First check if we already have a session
       let session = connector.currentSession;
-      
+
       if (!session) {
         // Only sign in anonymously if we don't have a session
         session = await connector.signInAnonymously();
       }
-      
+
       const userId = session?.user?.id;
 
       if (userId) {
@@ -81,7 +81,7 @@ function App() {
       }
       console.log("No user ID, attempting to authenticate...");
       await fetchUserID();
-      
+
       // If still no userID after fetch, don't proceed
       if (!userID) {
         console.error("Cannot create counter: No authenticated user");
@@ -129,15 +129,12 @@ function App() {
                 </div>
                 <div><strong>hasSynced:</strong> {status.hasSynced?.toString() ?? "false"}</div>
                 <div><strong>lastSyncedAt:</strong> {status.lastSyncedAt?.toLocaleString() ?? "N/A"}</div>
+
+                <div><strong>User ID:</strong> {userID || "Not authenticated"}</div>
+                {isAuthenticating && <div><strong>Status:</strong> Authenticating...</div>}
+                {authError && <div style={{ color: 'red' }}><strong>Auth Error:</strong> {authError}</div>}
               </>
             )}
-          </div>
-          
-          {/* Authentication Status */}
-          <div className="auth-status">
-            <div><strong>User ID:</strong> {userID || "Not authenticated"}</div>
-            {isAuthenticating && <div><strong>Status:</strong> Authenticating...</div>}
-            {authError && <div style={{color: 'red'}}><strong>Auth Error:</strong> {authError}</div>}
           </div>
         </div>
 
@@ -188,7 +185,7 @@ function App() {
         <>
           {/* Show authentication status or create counter button */}
           {!userID ? (
-              <p>Please sign in to create a counter.</p>
+            <p>Please sign in to create a counter.</p>
           ) : (
             <>
               {/* Only visible if the current user has not created a counter */}
