@@ -22,6 +22,13 @@ npx degit powersync-community/vite-react-ts-powersync-supabase
 git clone https://github.com/powersync-community/vite-react-ts-powersync-supabase.git
 ```
 
+4. Start the project using [bolt.new](https://bolt.new):
+
+- Open this [link](https://bolt.new/github.com/powersync-community/vite-react-ts-powersync-supabase/tree/main) to load the project.
+  - You will see a configuration error in the preview window because the `.env` file has not yet been defined.
+- Create a new `.env` file and populate it with the appropriate Supabase and PowerSync credentials, as specified in the `.env.local.template` file included in this repository.
+- Save the file — the app should launch automatically.
+
 ## Usage
 
 After cloning the repository, navigate to the project directory and install the dependencies:
