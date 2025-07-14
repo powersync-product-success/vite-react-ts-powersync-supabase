@@ -1,5 +1,4 @@
 name: CI
-
 on:
   push:
     branches: [main]
@@ -11,23 +10,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'npm'
-
+          cache: 'pnpm'
+          check-latest: true
+          package-manager: 'pnpm'
       - name: Install dependencies
-        run: npm ci
-
+        run: pnpm install --frozen-lockfile
       - name: Run linting
-        run: npm run lint
-
+        run: pnpm run lint
       - name: Run type checking
-        run: npm run type-check
-
+        run: pnpm run type-check
       - name: Run tests
-        run: npm test
-
+        run: pnpm test
       - name: Run build
-        run: npm run build
+        run: pnpm run build
