@@ -108,8 +108,8 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* Top row with Status and Helpful Links cards */}
-      <div className="top-row">
+      {/* Top row with Status, Logo, and Helpful Links in a grid like counter-grid */}
+      <div className="top-grid">
         <div className="status-card">
           <h3>PowerSync Status</h3>
           <div className="mono-text">
@@ -141,6 +141,10 @@ function App() {
           </div>
         </div>
 
+        <div className="logo-card">
+          <img src="/icons/icon.png" alt="Logo" className="logo-image" />
+        </div>
+
         <div className="links-card">
           <h3>Helpful Links</h3>
           <ul className="links-list">
@@ -149,7 +153,7 @@ function App() {
                 PowerSync Documentation
               </a>
             </li>
-             <li>
+            <li>
               <a href="https://accounts.journeyapps.com/portal" target="_blank" rel="noopener noreferrer">
                 PowerSync Dashboard Portal
               </a>
