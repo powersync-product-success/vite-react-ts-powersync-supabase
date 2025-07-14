@@ -11,8 +11,11 @@ We recommend using the first option for a quick start.
 2. Use [degit](https://github.com/Rich-Harris/degit) to scaffold the project:
 
 ```bash
-npx degit powersync-product-success/vite-react-ts-powersync-supabase vite-react-ts-powersync-supabase
+npx degit powersync-product-success/vite-react-ts-powersync-supabase my-powersync-app
+cd my-powersync-app
 ```
+
+> **Note**: `degit` is a tool that downloads the latest version of a repository without the git history, giving you a clean starting point. Replace `my-powersync-app` with your preferred project name.
 
 3. Clone the repository directly and install dependencies:
 

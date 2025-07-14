@@ -1,7 +1,7 @@
 -- See our guide for more information on how to set up your Supabase database: 
 -- https://docs.powersync.com/integration-guides/supabase-+-powersync#supabase-powersync
 
-CREATE TABLE IF NOT exists counters
+CREATE TABLE counters
 (
     id TEXT PRIMARY KEY,
     count INTEGER NOT NULL DEFAULT 0,
@@ -10,7 +10,7 @@ CREATE TABLE IF NOT exists counters
 );
 
 -- Create a role/user with replication privileges for PowerSync
-CREATE IF NOT EXISTS ROLE powersync_role WITH REPLICATION BYPASSRLS LOGIN PASSWORD 'myhighlyrandompassword';
+CREATE ROLE powersync_role WITH REPLICATION BYPASSRLS LOGIN PASSWORD 'myhighlyrandompassword';
 -- Set up permissions for the newly created role
 -- Read-only (SELECT) access is required
 GRANT SELECT ON ALL TABLES IN SCHEMA public TO powersync_role;
