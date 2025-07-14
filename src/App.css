@@ -1,4 +1,6 @@
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -74,4 +76,49 @@ html, body, #root {
   border: none;
   border-radius: 6px;
   cursor: pointer;
+}
+
+.top-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.status-card,
+.links-card {
+  flex: 1;
+  min-width: 300px;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.links-card ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.links-card li {
+  margin-bottom: 0.5rem;
+}
+
+.links-card a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.links-card a:hover {
+  text-decoration: underline;
+}
+
+.counter-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.counter-card {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
 }

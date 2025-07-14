@@ -108,34 +108,73 @@ function App() {
 
   return (
     <div className="app-container">
-      <div className="status-card">
-        <h3>PowerSync Status</h3>
-        <div className="mono-text">
-          {/* SDK version of the rust core extension and it's hash - see here https://github.com/powersync-ja/powersync-sqlite-core/releases */}
-          <div><strong>SDK Version:</strong> {powerSync.sdkVersion}</div>
-          {status && (
-            <>
-              <div><strong>connected:</strong> {status.connected.toString()}</div>
-              <div><strong>connecting:</strong> {status.connecting.toString()}</div>
-              <div><strong>uploading:</strong> {status.dataFlowStatus?.uploading?.toString()}</div>
-              <div><strong>downloading:</strong> {status.dataFlowStatus?.downloading?.toString()}</div>
-              <div>
-                <strong>downloadProgress:</strong>{" "}
-                {status.downloadProgress?.downloadedFraction != null
-                  ? `${(status.downloadProgress.downloadedFraction * 100).toFixed(2)}%`
-                  : "0%"}
-              </div>
-              <div><strong>hasSynced:</strong> {status.hasSynced?.toString() ?? "false"}</div>
-              <div><strong>lastSyncedAt:</strong> {status.lastSyncedAt?.toLocaleString() ?? "N/A"}</div>
-            </>
-          )}
+      {/* Top row with Status and Helpful Links cards */}
+      <div className="top-row">
+        <div className="status-card">
+          <h3>PowerSync Status</h3>
+          <div className="mono-text">
+            {/* SDK version of the rust core extension and it's hash - see here https://github.com/powersync-ja/powersync-sqlite-core/releases */}
+            <div><strong>SDK Version:</strong> {powerSync.sdkVersion}</div>
+            {status && (
+              <>
+                <div><strong>connected:</strong> {status.connected.toString()}</div>
+                <div><strong>connecting:</strong> {status.connecting.toString()}</div>
+                <div><strong>uploading:</strong> {status.dataFlowStatus?.uploading?.toString()}</div>
+                <div><strong>downloading:</strong> {status.dataFlowStatus?.downloading?.toString()}</div>
+                <div>
+                  <strong>downloadProgress:</strong>{" "}
+                  {status.downloadProgress?.downloadedFraction != null
+                    ? `${(status.downloadProgress.downloadedFraction * 100).toFixed(2)}%`
+                    : "0%"}
+                </div>
+                <div><strong>hasSynced:</strong> {status.hasSynced?.toString() ?? "false"}</div>
+                <div><strong>lastSyncedAt:</strong> {status.lastSyncedAt?.toLocaleString() ?? "N/A"}</div>
+              </>
+            )}
+          </div>
+          
+          {/* Authentication Status */}
+          <div className="auth-status">
+            <div><strong>User ID:</strong> {userID || "Not authenticated"}</div>
+            {isAuthenticating && <div><strong>Status:</strong> Authenticating...</div>}
+            {authError && <div style={{color: 'red'}}><strong>Auth Error:</strong> {authError}</div>}
+          </div>
         </div>
-        
-        {/* Authentication Status */}
-        <div className="auth-status">
-          <div><strong>User ID:</strong> {userID || "Not authenticated"}</div>
-          {isAuthenticating && <div><strong>Status:</strong> Authenticating...</div>}
-          {authError && <div style={{color: 'red'}}><strong>Auth Error:</strong> {authError}</div>}
+
+        <div className="links-card">
+          <h3>Helpful Links</h3>
+          <ul className="links-list">
+            <li>
+              <a href="https://docs.powersync.com" target="_blank" rel="noopener noreferrer">
+                PowerSync Documentation
+              </a>
+            </li>
+             <li>
+              <a href="https://accounts.journeyapps.com/portal" target="_blank" rel="noopener noreferrer">
+                PowerSync Dashboard Portal
+              </a>
+            </li>
+            <li>
+              <a href="https://docs.powersync.com/usage/sync-rules" target="_blank" rel="noopener noreferrer">
+                PowerSync Sync Rules
+              </a>
+            </li>
+            <li>
+              <a href="https://app.supabase.com" target="_blank" rel="noopener noreferrer">
+                Supabase Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="https://docs.powersync.com/integration-guides/supabase-+-powersync" target="_blank" rel="noopener noreferrer">
+                Supabase + PowerSync Guide
+              </a>
+            </li>
+            <li>
+              <a href="https://supabase.com/docs/guides/auth" target="_blank" rel="noopener noreferrer">
+                Supabase Auth Guide
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
 
