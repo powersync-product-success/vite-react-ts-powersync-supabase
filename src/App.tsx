@@ -1,7 +1,7 @@
 import "./App.css";
 import { useQuery, useStatus } from "@powersync/react";
 import { COUNTER_TABLE, type CounterRecord } from "./powersync/AppSchema";
-import { useEffect, useState, useCallback } from "react";
+import { useState } from "react";
 import { powerSync } from "./powersync/System";
 import { connector } from "./powersync/SupabaseConnector";
 
@@ -17,7 +17,9 @@ function App() {
     `SELECT * FROM ${COUNTER_TABLE} ORDER BY created_at ASC`
   );
 
-  const fetchUserID = useCallback(async () => {
+  // Function to fetch and set the current user's ID from Supabase auth session
+  // Handles both existing sessions and new anonymous authentication
+  const fetchUserID = async () => {
     if (isAuthenticating) {
       console.log("Already authenticating, skipping...");
       return;
@@ -53,13 +55,7 @@ function App() {
     } finally {
       setIsAuthenticating(false);
     }
-  }, [isAuthenticating]);
-
-  // Effect hook to fetch and set the current user's ID from Supabase auth session
-  // Runs once when the component mounts
-  useEffect(() => {
-    fetchUserID();
-  }, [fetchUserID]);
+  };
 
   // Example of executing a native SQLite query using PowerSync
   // This demonstrates how to directly execute SQL commands for data mutations
@@ -103,6 +99,12 @@ function App() {
       console.error("Error creating counter:", err);
     }
   };
+
+  // Check for existing session when component mounts
+  // This runs only once when the app first loads
+  if (!userID && !isAuthenticating && !authError) {
+    fetchUserID();
+  }
 
   return (
     <div className="app-container">
