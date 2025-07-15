@@ -1,6 +1,6 @@
 # Vite + React + TS + PowerSync + Supabase
 
-![App Demo](assets/demo.gif)
+![App Demo](https://github.com/powersync-community/vite-react-ts-powersync-supabase/releases/download/v1.0.0/demo.gif)
 
 A templated Vite, TS, React, PowerSync and Supabase project to get you started quickly with building offline-first applications with PowerSync and Supabase.
 
