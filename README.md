@@ -1,6 +1,17 @@
 # Vite + React + TS + PowerSync + Supabase
 
-A template Vite, TS, React, PowerSync and Supabase project to get you started quickly with building offline-first applications with PowerSync and Supabase.
+![App Demo](assets/demo.gif)
+
+A templated Vite, TS, React, PowerSync and Supabase project to get you started quickly with building offline-first applications with PowerSync and Supabase.
+
+## Requirements
+
+| Tool/Service     | Version / Info             | Notes                                                  |
+|------------------|----------------------------|--------------------------------------------------------|
+| Node.js (via nvm)| `v20.19.0`                 | Ensure you run `nvm use` to match the project version |
+| PowerSync        | Active account required    | [Sign up here](https://www.powersync.com)             |
+| Supabase         | Active project/account     | [Get started](https://supabase.com)                   |
+
 
 ## Getting Started
 
