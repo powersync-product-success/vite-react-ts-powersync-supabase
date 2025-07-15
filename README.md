@@ -9,8 +9,8 @@ A templated Vite, TS, React, PowerSync and Supabase project to get you started q
 | Tool/Service     | Version / Info             | Notes                                                  |
 |------------------|----------------------------|--------------------------------------------------------|
 | Node.js (via nvm)| `v20.19.0`                 | Ensure you run `nvm use` to match the project version |
-| PowerSync        | Active account required    | [Sign up here](https://www.powersync.com)             |
-| Supabase         | Active project/account     | [Get started](https://supabase.com)                   |
+| PowerSync        | Active account required    | [Sign up here](https://accounts.journeyapps.com/portal/powersync-signup)             |
+| Supabase         | Active project/account     | [Sign up here](https://supabase.com/dashboard/sign-up)                   |
 
 
 ## Getting Started
