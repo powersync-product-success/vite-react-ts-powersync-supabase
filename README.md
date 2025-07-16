@@ -9,8 +9,8 @@ A templated Vite, TS, React, PowerSync and Supabase project to get you started q
 | Tool/Service     | Version / Info             | Notes                                                  |
 |------------------|----------------------------|--------------------------------------------------------|
 | Node.js (via nvm)| `v20.19.0`                 | Ensure you run `nvm use` to match the project version |
-| PowerSync        | Active account required    | <a href="https://accounts.journeyapps.com/portal/powersync-signup" target="_blank" rel="noopener noreferrer">Sign up here</a>             |
-| Supabase         | Active project/account     | <a href="https://supabase.com/dashboard/sign-up" target="_blank" rel="noopener noreferrer">Sign up here</a>                   |
+| PowerSync        | Active account required    | [Sign up here](https://accounts.journeyapps.com/portal/powersync-signup)             |
+| Supabase         | Active project/account     | [Sign up here](https://supabase.com/dashboard/sign-up)                   |
 
 
 # Getting Started
@@ -20,14 +20,14 @@ You have 4 options to get started with this template. We recommend using the fir
 <details>
 <summary><strong>1. Generate from template (Recommended)</strong></summary>
 
-Generate a repository from this <a href="https://github.com/powersync-community/vite-react-ts-powersync-supabase/generate" target="_blank" rel="noopener noreferrer">template</a>.
+Generate a repository from this [template](https://github.com/powersync-community/vite-react-ts-powersync-supabase/generate).
 
 </details>
 
 <details>
 <summary><strong>2. Use degit</strong></summary>
 
-Use <a href="https://github.com/Rich-Harris/degit" target="_blank" rel="noopener noreferrer">degit</a> to scaffold the project:
+Use [degit](https://github.com/Rich-Harris/degit) to scaffold the project:
 
 ```bash
 npx degit powersync-community/vite-react-ts-powersync-supabase
@@ -51,9 +51,9 @@ git clone https://github.com/powersync-community/vite-react-ts-powersync-supabas
 <details>
 <summary><strong>4. Start with bolt.new</strong></summary>
 
-Start the project using <a href="https://bolt.new" target="_blank" rel="noopener noreferrer">bolt.new</a>:
+Start the project using [bolt.new](https://bolt.new):
 
-- Open this <a href="https://bolt.new/github.com/powersync-community/vite-react-ts-powersync-supabase/tree/main" target="_blank" rel="noopener noreferrer">link</a> to load the project.
+- Open this [link](https://bolt.new/github.com/powersync-community/vite-react-ts-powersync-supabase/tree/main) to load the project.
   - You will see a configuration error in the preview window because the `.env.local` file has not yet been defined.
 - Create a new `.env.local` file and populate it with the appropriate Supabase and PowerSync credentials, as specified in the `.env.local.template` file included in this repository (refer to step 4 "Set up environment").
 - Save the file — the app should launch automatically.
@@ -73,14 +73,14 @@ npm run dev
 # Setup Backend
 
 ## 1. Setup Supabase
-Follow these steps to set up your backend with Supabase and PowerSync (Or you can follow the <a href="https://docs.powersync.com/integration-guides/supabase-+-powersync" target="_blank" rel="noopener noreferrer">guide</a>).
+Follow these steps to set up your backend with Supabase and PowerSync (Or you can follow the [guide](https://docs.powersync.com/integration-guides/supabase-+-powersync)).
 
 <details>
 <summary><strong>Option 1: Setup using the Supabase Dashboard</strong></summary>
 
-1. <a href="https://supabase.com/dashboard/projects" target="_blank" rel="noopener noreferrer">Create a new project on the Supabase dashboard</a>.
-2. Go to the Supabase SQL Editor for your new project and execute the SQL statements in <a href="database.pgsql" target="_blank" rel="noopener noreferrer">database.pgsql</a> to create the database schema, database functions, and publication needed for PowerSync.
-3. Enable "anonymous sign-ins" for the project <a href="https://supabase.com/dashboard/project/_/auth/providers" target="_blank" rel="noopener noreferrer">here</a> (demo specific)
+1. [Create a new project on the Supabase dashboard](https://supabase.com/dashboard/projects).
+2. Go to the Supabase SQL Editor for your new project and execute the SQL statements in [database.pgsql](database.pgsql) to create the database schema, database functions, and publication needed for PowerSync.
+3. Enable "anonymous sign-ins" for the project [here](https://supabase.com/dashboard/project/_/auth/providers) (demo specific)
 
 </details>
 
@@ -90,10 +90,10 @@ Follow these steps to set up your backend with Supabase and PowerSync (Or you ca
 If you prefer using the Supabase CLI, you can set up your project as follows:
 1. Login to your Supabase Account `npx supabase login`
 2. Initialize your project `npx supabase init`
-3. Enable "anonymous sign-ins" for the project <a href="https://supabase.com/dashboard/project/_/auth/providers" target="_blank" rel="noopener noreferrer">here</a>
-4. Copy your project ID from the Supabase dashboard <a href="https://supabase.com/dashboard/project/_/settings/general" target="_blank" rel="noopener noreferrer">here</a>
+3. Enable "anonymous sign-ins" for the project [here](https://supabase.com/dashboard/project/_/auth/providers)
+4. Copy your project ID from the Supabase dashboard [here](https://supabase.com/dashboard/project/_/settings/general)
 5. Link your local project `npx supabase link --project-ref <project-id>`
-6. Create your first migration with `npx supabase migration new create_powersync_tables` and then copy the contents of <a href="database.pgsql" target="_blank" rel="noopener noreferrer">database.pgsql</a> into the newly created migration file in the `supabase/migrations` directory.
+6. Create your first migration with `npx supabase migration new create_powersync_tables` and then copy the contents of [database.pgsql](database.pgsql) into the newly created migration file in the `supabase/migrations` directory.
 7. Push your tables to the cloud db
    ```shell
    npx supabase db push
@@ -112,7 +112,7 @@ You can set up your PowerSync instance using either the Dashboard or CLI approac
 
 If you prefer using the web interface:
 
-1. In the <a href="https://powersync.journeyapps.com/" target="_blank" rel="noopener noreferrer">PowerSync dashboard</a>, create a new PowerSync instance:
+1. In the [PowerSync dashboard](https://powersync.journeyapps.com/), create a new PowerSync instance:
    - Right-click on 'PowerSync Project' in the project tree on the left and click "Create new instance"
    - Pick a name for the instance e.g. "PowerSyncDemoInstance" and proceed.
 
@@ -130,15 +130,15 @@ If you prefer using the web interface:
 <details>
 <summary><strong>Option 2: Setup using the PowerSync CLI</strong></summary>
 
-See <a href="https://docs.powersync.com/usage/tools/cli" target="_blank" rel="noopener noreferrer">PowerSync CLI docs</a>.
+See [PowerSync CLI docs](https://docs.powersync.com/usage/tools/cli).
 
 > This PowerSync CLI only works with **PowerSync Cloud instances.**
 > The CLI currently does not support **self-hosted PowerSync instances.**
 
-If you don't have a PowerSync account yet, <a href="https://accounts.journeyapps.com/portal/powersync-signup" target="_blank" rel="noopener noreferrer">sign up here</a>.
+If you don't have a PowerSync account yet, [sign up here](https://accounts.journeyapps.com/portal/powersync-signup).
 
 1. **Get your Personal Access Token:**
-   - Go to the <a href="https://powersync.journeyapps.com/" target="_blank" rel="noopener noreferrer">PowerSync dashboard</a>
+   - Go to the [PowerSync dashboard](https://powersync.journeyapps.com/)
    - Press `Ctrl + Shift + P` (or `Cmd + Shift + P` on Mac)
    - Search for "Create Personal Access Token"
    - Give it "owner" policy and a descriptive label
@@ -183,8 +183,8 @@ The sync rules are already deployed if you followed the CLI setup steps above.
 <details>
 <summary><strong>Option 2: Using Dashboard</strong></summary>
 
-1. Open the <a href="sync-rules.yaml" target="_blank" rel="noopener noreferrer">sync-rules.yaml</a> in this repo and copy the contents.
-2. In the <a href="https://powersync.journeyapps.com/" target="_blank" rel="noopener noreferrer">PowerSync dashboard</a>, paste that into the 'sync-rules.yaml' editor panel.
+1. Open the [sync-rules.yaml](sync-rules.yaml) in this repo and copy the contents.
+2. In the [PowerSync dashboard](https://powersync.journeyapps.com/), paste that into the 'sync-rules.yaml' editor panel.
 3. Click the "Deploy sync rules" button and select your PowerSync instance from the drop-down list.
 
 </details>
@@ -213,13 +213,13 @@ VITE_POWERSYNC_URL=
 - [API Keys](https://supabase.com/dashboard/project/_/settings/api-keys)
 
 **Detailed Instructions:**
-1. Go to your <a href="https://app.supabase.com" target="_blank" rel="noopener noreferrer">Supabase Dashboard</a>
+1. Go to your [Supabase Dashboard](https://app.supabase.com)
 2. Select your project
 3. For the URL: Navigate to Project Settings → Data API and copy the "Project URL" for `VITE_SUPABASE_URL`
 4. For the key: Navigate to Project Settings → API Keys and copy the "anon public" key for `VITE_SUPABASE_ANON_KEY`
 
 **VITE_POWERSYNC_URL:**
-1. Go to your <a href="https://powersync.journeyapps.com/" target="_blank" rel="noopener noreferrer">PowerSync Dashboard</a>
+1. Go to your [PowerSync Dashboard](https://powersync.journeyapps.com/)
 2. Select your project
 3. Navigate to your PowerSync instance
 4. Copy the "Instance URL" for `VITE_POWERSYNC_URL`
