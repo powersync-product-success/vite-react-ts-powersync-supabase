@@ -70,8 +70,6 @@ npm install
 npm run dev
 ```
 
-# Setup Backend
-
 ## 1. Setup Supabase
 Follow these steps to set up your backend with Supabase and PowerSync (Or you can follow the [guide](https://docs.powersync.com/integration-guides/supabase-+-powersync)).
 
@@ -101,9 +99,7 @@ If you prefer using the Supabase CLI, you can set up your project as follows:
 
 </details>
 
-# Setup PowerSync
-
-## 2. Create PowerSync Instance and Connect to Supabase
+## 2. Setup PowerSync Instance and Connect to Supabase
 
 You can set up your PowerSync instance using either the Dashboard or CLI approach:
 
