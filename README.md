@@ -108,7 +108,27 @@ If you prefer using the Supabase CLI, you can set up your project as follows:
 You can set up your PowerSync instance using either the Dashboard or CLI approach:
 
 <details>
-<summary><strong>Option 1: Using PowerSync CLI</strong></summary>
+<summary><strong>Option 1: Setup using the PowerSync Dashboard</strong></summary>
+
+If you prefer using the web interface:
+
+1. In the <a href="https://powersync.journeyapps.com/" target="_blank" rel="noopener noreferrer">PowerSync dashboard</a>, create a new PowerSync instance:
+   - Right-click on 'PowerSync Project' in the project tree on the left and click "Create new instance"
+   - Pick a name for the instance e.g. "PowerSyncDemoInstance" and proceed.
+
+2. In the "Edit Instance" dialog that follows, click on the "Connections" tab:
+   - Click on the "+" button to create a new database connection.
+   - Input the credentials from the project you created in Supabase. In the Supabase dashboard, under your project you can go to "Project Settings" and then "Database" and choose "URI" under "Connection string", **untick the "Use connection pooling" option** to use the direct connection, and then copy & paste the connection string into the PowerSync dashboard "URI" field, and then enter your database password at the "Password" field.
+   - Click the "Test connection" button and you should see "Connection success!"
+
+3. Click on the "Credentials" tab of the "Edit Instance" dialog:
+   - Tick the "Use Supabase Auth" checkbox and configure the JWT secret.
+   - Click "Save" to save all the changes to your PowerSync instance. The instance will now be deployed — this may take a minute or two.
+
+</details>
+
+<details>
+<summary><strong>Option 2: Setup using the PowerSync CLI</strong></summary>
 
 See <a href="https://docs.powersync.com/usage/tools/cli" target="_blank" rel="noopener noreferrer">PowerSync CLI docs</a>.
 
@@ -151,26 +171,6 @@ Follow the prompts to configure:
 
 </details>
 
-<details>
-<summary><strong>Option 2: Using PowerSync Dashboard</strong></summary>
-
-If you prefer using the web interface:
-
-1. In the <a href="https://powersync.journeyapps.com/" target="_blank" rel="noopener noreferrer">PowerSync dashboard</a>, create a new PowerSync instance:
-   - Right-click on 'PowerSync Project' in the project tree on the left and click "Create new instance"
-   - Pick a name for the instance e.g. "PowerSyncDemoInstance" and proceed.
-
-2. In the "Edit Instance" dialog that follows, click on the "Connections" tab:
-   - Click on the "+" button to create a new database connection.
-   - Input the credentials from the project you created in Supabase. In the Supabase dashboard, under your project you can go to "Project Settings" and then "Database" and choose "URI" under "Connection string", **untick the "Use connection pooling" option** to use the direct connection, and then copy & paste the connection string into the PowerSync dashboard "URI" field, and then enter your database password at the "Password" field.
-   - Click the "Test connection" button and you should see "Connection success!"
-
-3. Click on the "Credentials" tab of the "Edit Instance" dialog:
-   - Tick the "Use Supabase Auth" checkbox and configure the JWT secret.
-   - Click "Save" to save all the changes to your PowerSync instance. The instance will now be deployed — this may take a minute or two.
-
-</details>
-
 ## 3. Deploy Sync Rules
 
 <details>
@@ -207,6 +207,12 @@ VITE_POWERSYNC_URL=
 ### How to get these values:
 
 **VITE_SUPABASE_URL & VITE_SUPABASE_ANON_KEY:**
+
+**Quick Access:** For convenience, you can access both settings directly:
+- [API Settings & URL](https://supabase.com/dashboard/project/_/settings/api)
+- [API Keys](https://supabase.com/dashboard/project/_/settings/api-keys)
+
+**Detailed Instructions:**
 1. Go to your <a href="https://app.supabase.com" target="_blank" rel="noopener noreferrer">Supabase Dashboard</a>
 2. Select your project
 3. For the URL: Navigate to Project Settings → Data API and copy the "Project URL" for `VITE_SUPABASE_URL`
